@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/yellow"
     tools:context=".fragment.AboutFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,7 +11,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="About"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
 </FrameLayout>

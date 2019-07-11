@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NavigationActivity extends AppCompatActivity {
+
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -44,19 +45,66 @@ public class NavigationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_layout);
 
+
+        findViewById();
+        getFragments();
+        viewPager();
+        navigationView();
+
+        replace(new HomeFragment(), null, false);
+
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+
+    }
+
+    private void navigationView() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.Home:
+                        Toast.makeText(NavigationActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                        replace(new HomeFragment(), "a", true);
+                        break;
+
+                    case R.id.AllUsers:
+                        Toast.makeText(NavigationActivity.this, "All Users", Toast.LENGTH_SHORT).show();
+                        replace(new UserFragment(), "b", true);
+                        break;
+
+                    case R.id.Settings:
+                        Toast.makeText(NavigationActivity.this, "Settings", Toast.LENGTH_SHORT).show();
+                        replace(new SettingFragment(), "c", true);
+                        break;
+                    case R.id.About:
+                        Toast.makeText(NavigationActivity.this, "About", Toast.LENGTH_SHORT).show();
+                        replace(new AboutFragment(), "d", true);
+                        break;
+
+                }
+                drawerLayout.closeDrawer(GravityCompat.START, true);
+                return true;
+            }
+        });
+
+    }
+
+    private void findViewById() {
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navigation);
         frameLayout = findViewById(R.id.frame);
-
+        tabLayout = findViewById(R.id.tab);
+        viewPager = findViewById(R.id.viewpager);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        replace(new UserFragment(), null, false);
 
-        tabLayout = findViewById(R.id.tab);
-        viewPager = findViewById(R.id.viewpager);
+    }
 
-        getFragments();
+    private void viewPager() {
         viewPager.setAdapter(new ViewPagerAdpater(getSupportFragmentManager(), list, this));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setupWithViewPager(viewPager);
@@ -74,40 +122,6 @@ public class NavigationActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
-            }
-        });
-
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.Home:
-                        Toast.makeText(NavigationActivity.this, "Home", Toast.LENGTH_SHORT).show();
-                        replace(new HomeFragment(), "a", true);
-                        break;
-
-                    case R.id.AllUsers:
-                        Toast.makeText(NavigationActivity.this, "All Users", Toast.LENGTH_SHORT).show();
-                        replace(new UserFragment(), "b", true);
-                        break;
-
-                    case R.id.Settings:
-                        Toast.makeText(NavigationActivity.this, "Settings", Toast.LENGTH_SHORT).show();
-                        replace(new SettingFragment(),"c",true);
-                        break;
-                    case R.id.About:
-                        Toast.makeText(NavigationActivity.this, "About", Toast.LENGTH_SHORT).show();
-                        replace(new AboutFragment(),"d",true);
-                        break;
-
-                }
-                drawerLayout.closeDrawer(GravityCompat.START, true);
-                return true;
             }
         });
 
@@ -150,7 +164,6 @@ public class NavigationActivity extends AppCompatActivity {
         else
             super.onBackPressed();
     }
-
 
 }
 
