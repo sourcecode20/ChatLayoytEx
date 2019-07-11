@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_height="230dp"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+     android:background="#092D86"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="header"
+        android:background="@drawable/header3"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/person2"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:paddingStart="10dp"
+            android:textStyle="bold"
+            android:gravity="left"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email_id"
+            android:paddingStart="10dp"
+            android:gravity="left"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"/>
+        
+        
+    </LinearLayout>
+
+
+</RelativeLayout>
