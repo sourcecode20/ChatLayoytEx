@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "295564666829",
+    "firebase_url": "https://chatlayoytex.firebaseio.com",
+    "project_id": "chatlayoytex",
+    "storage_bucket": "chatlayoytex.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295564666829:android:7e3cc92858b0c1d5",
+        "android_client_info": {
+          "package_name": "com.example.chatlayoytex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295564666829-rea7b0r6k7h7u0ck70tub93haf4lfj4b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chatlayoytex",
+            "certificate_hash": "bdfc077c8c12ea007f06bc07c77c6b48a332308a"
+          }
+        },
+        {
+          "client_id": "295564666829-u09j5n73ru1ontaac7e0c3rr300gmheg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuYS-tEX-bVKDYpIs6xcDmWwshvFDpJHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295564666829-u09j5n73ru1ontaac7e0c3rr300gmheg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
