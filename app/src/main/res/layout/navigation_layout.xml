@@ -5,14 +5,16 @@
     android:id="@+id/drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.NavigationActivity">
+    tools:context=".ui.activity.NavigationActivity">
 
     <LinearLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:elevation="0dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay">
@@ -26,29 +28,7 @@
 
             </androidx.appcompat.widget.Toolbar>
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tab"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="200dp"
-                android:translationZ="100dp"
-                app:tabTextColor="@color/white"
-                app:tabIndicatorHeight="3dp"
-                app:tabBackground="@drawable/tab_selector"
-                app:tabIndicator="@color/tab_selected_background"
-                app:tabMode="fixed"
-                app:tabGravity="fill">
-
-            </com.google.android.material.tabs.TabLayout>
-
         </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </androidx.viewpager.widget.ViewPager>
 
         <FrameLayout
             android:id="@+id/frame"
@@ -59,14 +39,15 @@
 
     </LinearLayout>
 
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        app:itemTextColor="@color/black"
         android:layout_gravity="start"
+        android:background="@color/white"
         app:headerLayout="@layout/header"
+        app:itemTextColor="@color/black"
         app:menu="@menu/main">
 
     </com.google.android.material.navigation.NavigationView>

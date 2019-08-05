@@ -14,16 +14,23 @@
     </item>
     <item
         android:id="@+id/Settings"
-        android:icon="@drawable/settings"
+        android:icon="@drawable/setting"
         android:title="@string/settings">
 
     </item>
     <item
         android:id="@+id/About"
-        android:icon="@drawable/info"
+        android:icon="@drawable/about"
         android:title="@string/about">
 
     </item>
+    <item
+        android:id="@+id/Logout"
+        android:icon="@drawable/logout"
+        android:title="@string/logout">
+
+    </item>
 </menu>
+
 
 

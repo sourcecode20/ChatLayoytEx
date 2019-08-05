@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.chatlayoytex.fragment.HomeFragment;
-import com.example.chatlayoytex.fragment.UserFragment;
+import com.example.chatlayoytex.ui.fragment.ChatFragment;
+import com.example.chatlayoytex.ui.fragment.UserFragment;
 
 import java.util.List;
 
@@ -33,11 +33,11 @@ public class ViewPagerAdpater extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new HomeFragment();
+                return new ChatFragment();
             case 1:
                 return new UserFragment();
-        }
 
+        }
         return list.get(position);
     }
 
@@ -51,7 +51,7 @@ public class ViewPagerAdpater extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "Home";
+                return "Chat";
             case 1:
                 return "All Users";
         }
