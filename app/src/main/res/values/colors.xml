@@ -4,13 +4,16 @@
     <color name="colorPrimaryDark">#092D86</color>
     <color name="colorAccent">#D81B60</color>
     <color name="black">#000000</color>
-    <color name="grey">#6D6A6A</color>
+    <color name="grey">#EEEBEB</color>
     <color name="blue">#2196F3</color>
     <color name="green">#4CAF50</color>
     <color name="red">#F44336</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFC107</color>
+    <color name="chat_green">#2ac88b</color>
+    <color name="chat_sky_blue">#0087ff</color>
+
     <color name="tab_selected_background">#0E40BB</color>
     <color name="tab_unselected_background">#0E40BB</color>
+
 </resources>
-  

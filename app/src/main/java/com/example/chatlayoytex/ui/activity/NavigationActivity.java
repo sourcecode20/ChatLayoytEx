@@ -23,7 +23,7 @@ import com.example.chatlayoytex.firebase.Constants;
 import com.example.chatlayoytex.ui.fragment.AboutFragment;
 import com.example.chatlayoytex.ui.fragment.HomeFragment;
 import com.example.chatlayoytex.ui.fragment.SettingFragment;
-import com.example.chatlayoytex.ui.fragment.UserFragment;
+import com.example.chatlayoytex.ui.fragment.AllUserFragment;
 import com.example.chatlayoytex.utils.Loader;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -49,17 +49,17 @@ public class NavigationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_layout);
 
-
         init();
 
         navigationView();
 
         replace(new HomeFragment(), null, false);
 
+
+
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
 
 
     }
@@ -71,20 +71,24 @@ public class NavigationActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.Home:
                         Toast.makeText(NavigationActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                        toolbar.setTitle("Home");
                         replace(new HomeFragment(), "a", true);
                         break;
 
                     case R.id.AllUsers:
                         Toast.makeText(NavigationActivity.this, "All Users", Toast.LENGTH_SHORT).show();
-                        replace(new UserFragment(), "b", true);
+                        toolbar.setTitle("All Users");
+                        replace(new AllUserFragment(), "b", true);
                         break;
 
                     case R.id.Settings:
                         Toast.makeText(NavigationActivity.this, "Settings", Toast.LENGTH_SHORT).show();
+                        toolbar.setTitle("Settings");
                         replace(new SettingFragment(), "c", true);
                         break;
                     case R.id.About:
                         Toast.makeText(NavigationActivity.this, "About", Toast.LENGTH_SHORT).show();
+                        toolbar.setTitle("About");
                         replace(new AboutFragment(), "d", true);
                         break;
                     case R.id.Logout:
@@ -130,7 +134,7 @@ public class NavigationActivity extends AppCompatActivity {
         headerName = findViewById(R.id.userHeaderName);
         headerEmail = findViewById(R.id.userHeaderEmail);
         loader = new Loader(this);
-        toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.navigation_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

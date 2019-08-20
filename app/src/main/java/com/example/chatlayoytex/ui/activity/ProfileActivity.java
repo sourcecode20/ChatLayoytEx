@@ -1,6 +1,5 @@
 package com.example.chatlayoytex.ui.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,14 +29,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    CircleImageView imageView;
-    Toolbar toolbar1;
-    TextView email, name, age, mobile, address;
-    Button cancel_name, save_name;
-    ImageView editName, editAge, editMobile, editAddress;
-    Context context;
-
+    private CircleImageView imageView;
+    private Toolbar toolbar1;
+    private TextView email, name, age, mobile, address;
+    private Button cancel_name, save_name;
+    private ImageView editName, editAge, editMobile, editAddress;
     EditText editUserName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +44,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         init();
         dialog_name();
-        Picasso.get().load("https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg").into(imageView);
 
+        Picasso.get().load("https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg").into(imageView);
         FirebaseDatabase.getInstance().getReference()
                 .child(Constants.Users.key)
                 .child(FirebaseAuth.getInstance().getUid())
@@ -185,11 +183,14 @@ public class ProfileActivity extends AppCompatActivity {
         toolbar1 = findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar1);
         getSupportActionBar().setTitle("Profile");
-        getSupportActionBar().setCustomView(R.layout.fragment_user);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
-
+        toolbar1.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }

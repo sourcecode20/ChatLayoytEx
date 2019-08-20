@@ -21,12 +21,12 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UserFragment extends Fragment {
+public class AllUserFragment extends Fragment {
 
     private AllUserAdapter allUserAdapter;
     private View view;
 
-    public UserFragment() {
+    public AllUserFragment() {
         // Required empty public constructor
     }
 
@@ -35,23 +35,25 @@ public class UserFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_user, container, false);
 
 
-        adapter();
-
         return view;
 
     }
 
-    private void adapter() {
-
+    @Override
+    public void onResume() {
+        super.onResume();
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         allUserAdapter = new AllUserAdapter(new FirebaseRecyclerOptions.Builder<Users>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("Users").orderByChild(Constants.Users.name), Users.class)
+                .setQuery(FirebaseDatabase.getInstance().getReference().child(Constants.Users.key).orderByChild(Constants.Users.name), Users.class)
                 .build(), getActivity());
+
+
         recyclerView.setAdapter(allUserAdapter);
         allUserAdapter.startListening();
     }
+
 
     @Override
     public void onPause() {

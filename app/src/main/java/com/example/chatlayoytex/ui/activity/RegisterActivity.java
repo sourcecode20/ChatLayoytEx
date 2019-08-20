@@ -137,7 +137,7 @@ public class RegisterActivity extends AppCompatActivity {
         toolbar2 = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar2);
         getSupportActionBar().setTitle("Register");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         loader = new Loader(this);
         signupBtn = findViewById(R.id.signupBtn);
 

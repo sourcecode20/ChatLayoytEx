@@ -20,7 +20,7 @@
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/navigation_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="0dp"
@@ -47,7 +47,6 @@
         android:layout_gravity="start"
         android:background="@color/white"
         app:headerLayout="@layout/header"
-        app:itemTextColor="@color/black"
         app:menu="@menu/main">
 
     </com.google.android.material.navigation.NavigationView>

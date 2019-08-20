@@ -22,32 +22,23 @@ import java.util.List;
  */
 public class HomeFragment extends Fragment {
     private ViewPager viewPager;
+    private TabLayout tabLayout;
 
     public HomeFragment() {
         // Required empty public constructor
 
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-
-        TabLayout tabLayout = view.findViewById(R.id.tab);
-        viewPager = view.findViewById(R.id.viewpager);
+    public void onResume() {
+        super.onResume();
 
         List<Fragment> list = new ArrayList<>();
         list.add(new ChatFragment());
-        list.add(new UserFragment());
-
-        tabLayout.addTab(tabLayout.newTab().setText("Chat"));
-
-        tabLayout.addTab(tabLayout.newTab().setText("All Users"));
+        list.add(new AllUserFragment());
 
 
+        viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(new ViewPagerAdpater(getChildFragmentManager(), list, getContext()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setupWithViewPager(viewPager);
@@ -67,6 +58,20 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+
+        tabLayout = view.findViewById(R.id.tab);
+        viewPager = view.findViewById(R.id.viewpager);
+
+
         return view;
     }
 

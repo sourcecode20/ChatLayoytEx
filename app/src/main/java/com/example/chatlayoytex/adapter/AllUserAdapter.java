@@ -9,17 +9,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.chatlayoytex.R;
 import com.example.chatlayoytex.model.Users;
 import com.example.chatlayoytex.ui.activity.ChatActivity;
 import com.example.chatlayoytex.ui.activity.ProfileActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 import com.squareup.picasso.Picasso;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AllUserAdapter extends FirebaseRecyclerAdapter<Users, AllUserAdapter.ListViewHolder> {
@@ -35,16 +39,15 @@ public class AllUserAdapter extends FirebaseRecyclerAdapter<Users, AllUserAdapte
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.allusers, parent, false);
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
         return new ListViewHolder(view);
 
     }
 
     @Override
     protected void onBindViewHolder(@NonNull ListViewHolder listViewHolder, int i, @NonNull Users users) {
+
+
         listViewHolder.name.setText(users.getName());
-        listViewHolder.status.setText(users.getStatus());
         Picasso.get().load("https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg").into(listViewHolder.image);
 
 
@@ -63,22 +66,29 @@ public class AllUserAdapter extends FirebaseRecyclerAdapter<Users, AllUserAdapte
                 Button chat, profile;
 
                 chat = layout.findViewById(R.id.chat);
-                chat.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                        Intent intent = new Intent(context, ChatActivity.class);
-                        context.startActivity(intent);
+                if (FirebaseAuth.getInstance().getUid().equals(getRef(i).getKey()))
+                    chat.setVisibility(View.GONE);
+                else
+                    chat.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
 
-                    }
-                });
+                            Intent intent = new Intent(context, ChatActivity.class);
+                            intent.putExtra("id", getRef(i).getKey().toString());
+                            context.startActivity(intent);
+
+                        }
+                    });
+
+
                 profile = layout.findViewById(R.id.profile);
                 profile.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
-
                         Intent intent = new Intent(context, ProfileActivity.class);
+                        intent.putExtra("id",getRef(i).getKey().toString());
                         context.startActivity(intent);
 
                     }
@@ -88,14 +98,13 @@ public class AllUserAdapter extends FirebaseRecyclerAdapter<Users, AllUserAdapte
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder {
-        TextView name, status;
+        TextView name;
         CircleImageView image;
         LinearLayout layout;
 
         ListViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.userName);
-            status = itemView.findViewById(R.id.userStatus);
             image = itemView.findViewById(R.id.circleImageView);
             layout = itemView.findViewById(R.id.onClick);
         }

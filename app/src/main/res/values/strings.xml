@@ -4,6 +4,8 @@
     <string name="logout">Log out</string>
     <string name="cancel">Cancel</string>
     <string name="Save">Save</string>
+    <string name="message">Message</string>
+    <string name="clear_all_chat">Clear All Chat</string>
     <string name="email_id">Email</string>
     <string name="name">Name</string>
     <string name="age">Age</string>
@@ -12,6 +14,7 @@
     <string name="status">Status</string>
     <string name="edit_name">Edit Name</string>
     <string name="edit_age">Edit Age</string>
+    <string name="write">Write a message</string>
     <string name="edit_mobile">Edit Mobile</string>
     <string name="edit_address">Edit Aaddress</string>
     <string name="password">Password</string>

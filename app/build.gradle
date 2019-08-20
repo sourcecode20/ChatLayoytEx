@@ -36,12 +36,13 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha02'
 
     //design
-    implementation 'com.google.android.material:material:1.1.0-alpha08'
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
 
-    //firebase plugin
+    //firebase
     implementation 'com.google.firebase:firebase-core:17.0.1'
     implementation 'com.google.firebase:firebase-database:18.0.1'
     implementation 'com.firebaseui:firebase-ui-database:5.0.0'
+    implementation 'com.google.firebase:firebase-storage:18.1.1'
 
     //picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
@@ -51,6 +52,20 @@ dependencies {
 
     //lottie
     implementation 'com.airbnb.android:lottie:3.0.7'
+
+    //autoscaleedittext
+    implementation 'com.txusballesteros:AutoscaleEditText:1.0'
+
+
+    //image choser
+    implementation 'com.github.esafirm.android-image-picker:imagepicker:2.1.0'
+    // for experimental rx picker
+    implementation 'com.github.esafirm.android-image-picker:rximagepicker:2.1.0'
+    // If you have a problem with Glide, please use the same Glide version or simply open an issue
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+
+    implementation 'com.github.yalantis:ucrop:2.2.3'
+
 }
 //google services
 apply plugin: 'com.google.gms.google-services'

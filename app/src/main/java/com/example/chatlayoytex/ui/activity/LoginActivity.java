@@ -8,11 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.chatlayoytex.R;
 import com.example.chatlayoytex.utils.Loader;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -52,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            loader.show();
+                loader.show();
 
                 editTextEmail = findViewById(R.id.editTextEmail);
                 editTextPassword = findViewById(R.id.editTextPassword);
@@ -87,14 +85,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void init() {
-        toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.activity_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Login");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
         loginBtn = (Button) findViewById(R.id.loginBtn);
-        loader= new Loader(this);
+        loader = new Loader(this);
     }
 
     private boolean validation(String email, String password) {
